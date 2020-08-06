@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Byab-Service | {{hotel.nom}}{% endblock %}
+
+
+{% block body %} 
+    <div class="container mb-5" style="background-image: url({{hotel.photoHotel}})">
+        <h1>{{hotel.nom}} | {{hotel.note}}</h1>
+        <p>Adresse: {{hotel.adresse}}, {{hotel.ville}}</p>
+         Contact: {{hotel.contact}}
+    </div>
+
+    <div class="container">
+            <h2 class="mt-5 mb-5">Chambres disponibles à {{hotel.nom}}</h2>
+        <div class="row">
+        {% for chambre in hotel.chambres %}
+            <div class="col-md-4">
+                    <div class="card bg-light mb-3">
+                    <div class="card-header text-center">
+                        {{chambre.prix}} FCFA par nuité
+                 </div>
+                    <img src="{{chambre.photochambre}}" style="widht:300px; height:300px;"/>
+                    <div class="card-body">
+                                 <p class="card-text">
+                       Numéro de chambre: {{chambre.numeroChambre}}<br>
+                       Etage de chambre: {{chambre.etage}}
+                       </p>
+                       <a href="{{ path('chambre_details', {slug: hotel.slug, id: chambre.id} ) }}" class="btn btn-success">Détails</a>
+                    </div>
+                </div>
+            
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %} {% endblock %}

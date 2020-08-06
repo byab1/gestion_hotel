@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un hotel{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Création d'un hotel</h1>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-success">Créer un hotel</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

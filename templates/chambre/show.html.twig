@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ChambreController!
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+		<div class="card my-5">
+			<h5 class="card-header text-center">
+				{{cha.prix}}
+				FCFA par nuité</h5>
+			<div class="card-body">
+				<div class="row">
+					<div class="col">
+						<img src=" {{cha.photoChambre}}" style="wight:400px; height: 300px;"/>
+						<a href="#" class="btn btn-success mt-3">Reserver</a>
+					</div>
+					<div class="col">
+						<p>Numéro de chambre:
+							{{cha.numeroChambre}}</p>
+						<p>Etage:
+							{{cha.etage}}</p>
+						<hr>
+						<h1>Comodités disponibles dans la chambre
+						</h1>
+						<h1></h1>
+						{% if cha.comoditeChambre is not empty %}
+							{% for com in cha.comoditeChambre %}
+								<ul class="list-group">
+									<li class="list-group-item">{{com.nom}}</li>
+								</ul>
+							{% endfor %}
+						{% else %}
+							<small>Comodité non disponible</small>
+						{% endif %}
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+{% endblock %}

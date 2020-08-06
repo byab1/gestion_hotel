@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue !{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+    <h1 class="mt-5 mb-5">Cherchez un Hotel où dormir à Abidjan ?</h1>
+
+    
+        
+         <div class="row">
+         {% for hotel in hotels %}
+            <div class="col-md-4">
+                <div class="card bg-light mb-3">
+                    <div class="card-header text-center">
+                        {{hotel.nom}} <br>
+                        <small>Note {{hotel.note}}</small>
+                    </div>
+                    <img src="{{hotel.photoHotel}}" alt="Image de l'appartement" style="height: 200px; widht: 100%; display: block">
+
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            {{hotel.description}}
+                        </h4>
+                        <p class="card-text">
+                        Ville: {{hotel.ville}}<br>
+                        Contact: {{hotel.contact}}<br>
+                        Adresse: {{hotel.adresse}}
+                        </p>
+                        <a href="" class="btn btn-secondary">Voir les chambres</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        
+    </div>
+    
+
+{% endblock %}
